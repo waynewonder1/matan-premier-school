@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — Matan Premier Schools</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="contact-page">
+
+<section class="hero" style="padding-bottom: 40px;">
+
+  <nav>
+    <a href="index.html" class="logo"><img src="image/Screenshot 2026-07-21 224752.png" alt="Matan Premier Schools logo" class="logo-mark">Matan Premier Schools</a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="nav-links" id="navLinks">
+      <a href="about.html">About</a>
+      <a href="index.html#highlights">Programs</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html" class="visit-btn">Contact Us</a>
+    </div>
+  </nav>
+
+  <div class="hero-text" style="max-width: 700px; margin: 0 auto; text-align: center;">
+    <span class="eyebrow">We'd love to hear from you</span>
+    <h1>Get in <span>touch</span></h1>
+    <p style="max-width: 100%; margin: 0 auto;">Questions about enrollment, a visit, or anything else — reach out any way that's easiest for you.</p>
+  </div>
+</section>
+
+<section class="contact-section">
+  <div class="contact-grid">
+
+    <div class="contact-info">
+      <h3>Visit us</h3>
+      <p>Kiamumbi, Quito Street · QS 54</p>
+
+      <h3 style="margin-top: 28px;">Call or WhatsApp</h3>
+      <a href="tel:0712000805">0712 000 805</a>
+      <a href="tel:0721605578">0721 605 578</a>
+
+      <h3 style="margin-top: 28px;">Email</h3>
+      <a href="mailto:info@matanpremierschools.com">info@matanpremierschools.com</a>
+    </div>
+
+    <form class="contact-form">
+      <label for="name">Your name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email address</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required></textarea>
+
+      <button type="submit">Send message</button>
+    </form>
+
+  </div>
+</section>
+
+<button class="a11y-toggle" id="a11yToggle" aria-label="Accessibility options">♿</button>
+
+<div class="a11y-panel" id="a11yPanel">
+  <h4>Accessibility Options</h4>
+  <button id="a11yIncreaseSpacing">Increase Text Spacing</button>
+  <button id="a11yDecreaseSpacing">Decrease Text Spacing</button>
+  <button id="a11yInvert">Invert Colours</button>
+  <button id="a11yUnderline">Underline Links</button>
+  <button id="a11yReset">Reset</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -6,14 +6,26 @@
 <title>Matan Premier Schools</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<section class="hero">
+<div class="utility-bar">
+  <div class="utility-contact">
+    <a href="tel:0712000805">0712 000 805</a>
+    <a href="mailto:info@matanpremierschools.com">info@matanpremierschools.com</a>
+  </div>
+  <div class="utility-social">
+    <a href="https://www.tiktok.com/@matanpremierschools" aria-label="Facebook" target="_blank">T</a>
+    <a href="https://instagram.com/matanpremierschools" aria-label="Instagram" target="_blank">IG</a>
+    <a href="https://wa.me/254712000805" aria-label="WhatsApp" target="_blank">WA</a>
+  </div>
+</div>
 
+<div class="nav-wrapper">
   <nav>
-    <a href="index.html" class="logo"><img src="Screenshot 2026-07-21 224752.png" alt="Matan Premier Schools logo" class="logo-mark">Matan Premier Schools</a>
+    <a href="index.html" class="logo"><img src="image/Screenshot 2026-07-21 224752.png" alt="Matan Premier Schools logo" class="logo-mark">Matan Premier Schools</a>
 
     <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
       <span></span>
@@ -23,30 +35,31 @@
 
     <div class="nav-links" id="navLinks">
       <a href="about.html">About</a>
-      <a href="index.html#highlights">Programs</a>
-      <a href="#">Gallery</a>
-      <a href="#" class="visit-btn">Book a visit</a>
+      <a href="#highlights">Programs</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html" class="visit-btn">Contact Us</a>
     </div>
   </nav>
+</div>
 
-  <div class="hero-content">
-    <div class="hero-text">
-      <span class="eyebrow">Now enrolling for ages 3–5</span>
-      <h1>Where curious little minds <span>grow and play</span></h1>
-      <p>A warm, safe classroom where every day is full of stories, songs, and hands-on discovery — right in your neighbourhood.</p>
-      <div class="cta-row">
-        <a href="#" class="btn-primary">Book a visit</a>
-        <a href="#" class="btn-secondary">See our programs</a>
-      </div>
-    </div>
+<section class="hero-full">
+  <img src="image/class.3.jpeg" class="carousel-slide active" alt="Matan Premier Schools students">
+  <img src="image/reception.4.jpeg" class="carousel-slide" alt="Colourful learning mural at Matan Premier Schools">
+  <img src="image/outside.3.jpeg" class="carousel-slide" alt="Classroom at Matan Premier Schools">
+  <img src="image/outside.1.jpeg" class="carousel-slide" alt="Playground at Matan Premier Schools">
+  <img src="image/transport.1.jpeg" class="carousel-slide"  alt="Our school van">
+  <img src="image/toys.1.jpeg" class="carousel-slide"  alt="Fun toys for the kids">
+  <img src="image/Matan.logo2.jpeg" class="carousel-slide"  alt="our Prestigous Logo">
 
-    <div class="mobile-scene">
-      <div class="string" style="left:20%"></div>
-      <div class="string" style="left:50%"></div>
-      <div class="string" style="left:74%"></div>
-      <div class="shape circle" data-shape></div>
-      <div class="shape triangle" data-shape></div>
-      <div class="shape star" data-shape></div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-full-content">
+    <span class="eyebrow">Now enrolling for ages 3–5</span>
+    <h1>Where curious little minds <span>grow and play</span></h1>
+    <p>A warm, safe classroom where every day is full of stories, songs, and hands-on discovery — right in your neighbourhood.</p>
+    <div class="cta-row">
+      <a href="#" class="btn-primary">Book a visit</a>
+      <a href="#" class="btn-secondary">See our programs</a>
     </div>
   </div>
 
@@ -55,39 +68,91 @@
   </svg>
 </section>
 
-<section class="highlights" id="highlights">
-  <div class="highlights-grid">
-    <div class="card">
-      <div class="card-icon" style="background:#FFB347"></div>
-      <h3>Safe & nurturing</h3>
-      <p>Small groups, low ratios, and staff who know every child by name.</p>
+<section class="about-video-block">
+  <div class="about-video-text">
+    <h2 class="heading-serif">We are Matan</h2>
+    <p>Matan Premier Schools was founded to give young children a place where structure and play work hand in hand. Our classrooms combine hands-on discovery with steady routines, so every child grows in confidence at their own pace.</p>
+    <p>Our small class sizes mean teachers know every child by name — and every family by name too. From the moment a child walks through our gates to the moment they're picked up, they're known, cared for, and encouraged to be curious.</p>
+  </div>
+
+  <div class="about-video-media">
+    <video controls poster="image/Matan.logo2.jpeg">
+      <source src="WhatsApp Video 2026-08-17 at 10.46.27 PM.mp4" type="video/mp4">
+      Your browser doesn't support video playback.
+    </video>
+  </div>
+</section>
+
+
+<section style="padding: 60px 0;">
+
+  <div class="program-block">
+    <img src="image/class.1.jpeg" alt="Matan classroom">
+    <div class="program-text">
+      <h2 style="color: var(#fff);">Outstanding early curriculum</h2>
+      <p>Our students experience a rich, play-based curriculum that unlocks curiosity and builds real confidence — the foundation for everything that comes after.</p>
     </div>
-    <div class="card">
-      <div class="card-icon" style="background:#5B8DBE"></div>
-      <h3>Play-based learning</h3>
-      <p>Letters and numbers woven into songs, stories, and hands-on play.</p>
-    </div>
-    <div class="card">
-      <div class="card-icon" style="background:#FF7F6B"></div>
-      <h3>A true community</h3>
-      <p>Weekly family updates and open-door visits, any day of the week.</p>
+  </div>
+
+  <div class="program-block">
+    <img src="image/outside.1.jpeg" alt="Children playing at Matan">
+    <div class="program-text">
+      <h2 style="color: var(#fff);">A true community</h2>
+      <p>A diverse, warm community where every family is known by name, and every child feels like they belong from day one.</p>
     </div>
   </div>
 </section>
 
-<section class="gallery" id="gallery">
-  <h2>Campus life</h2>
-  <div class="gallery-grid">
-    <figure>
-      <img src="matan kindergarten 3.webp" alt="Matan Premier Schools students in uniform">
-      <figcaption>Our students, ready for the day</figcaption>
-    </figure>
-    <figure>
-      <img src="matan kindergarten 2.webp" alt="Colourful learning mural at Matan Premier Schools">
-      <figcaption>Colourful corners for curious minds</figcaption>
-    </figure>
+
+
+
+<section class="social-row">
+  <h2>Follow us</h2>
+  <div class="social-icons">
+    <a href="https://www.tiktok.com/@matanpremierschools" aria-label="tiktok" target="_blank">T</a>
+    <a href="https://instagram.com/matanpremierschools" aria-label="Instagram" target="_blank">IG</a>
+    <a href="https://wa.me/254712000805" aria-label="WhatsApp" target="_blank">WA</a>
   </div>
+  
 </section>
+
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <h3>Contact us</h3>
+      <p>Kiamumbi, Quito Street · QS 54</p>
+      <a href="tel:0712000805">0712 000 805</a>
+      <a href="tel:0721605578">0721 605 578</a>
+    </div>
+    <div>
+      <h3>Quick links</h3>
+      <a href="about.html">About</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="index.html#highlights">Programs</a>
+    </div>
+    <div>
+      <h3>Visit us</h3>
+      <p>Now enrolling for ages 3–5</p>
+      <a href="#" class="visit-btn" style="display:inline-block; margin-top:8px;">Book a visit</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    Copyright © Matan Premier Schools 2026. All Rights Reserved.
+  </div>
+</footer>
+
+<button class="a11y-toggle" id="a11yToggle" aria-label="Accessibility options">♿</button>
+
+<div class="a11y-panel" id="a11yPanel">
+  <h4>Accessibility Options</h4>
+  <button id="a11yIncreaseSpacing">Increase Text Spacing</button>
+  <button id="a11yDecreaseSpacing">Decrease Text Spacing</button>
+  <button id="a11yInvert">Invert Colours</button>
+  <button id="a11yUnderline">Underline Links</button>
+  <button id="a11yReset">Reset</button>
+</div>
+
 
 <script src="script.js"></script>
 </body>
