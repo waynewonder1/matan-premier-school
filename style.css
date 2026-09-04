@@ -47,17 +47,22 @@ nav {
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 14px;
+
   font-family: 'Baloo 2', sans-serif;
   font-weight: 700;
   font-size: 20px;
+
   color: var(--ink);
   text-decoration: none;
 }
 
 .logo-mark {
-  height: 110px;
-  width: auto;
+  width: 90px;
+  height: 90px;
+
+  object-fit: contain;
+
   display: block;
 }
 
