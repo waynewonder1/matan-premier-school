@@ -27,7 +27,7 @@
 }
 
 body {
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Inter', sans-serif;
   background: var(--cream);
   color: var(--ink);
 }
@@ -60,9 +60,10 @@ nav {
   align-items: center;
   gap: 14px;
 
-  font-family: 'Baloo 2', sans-serif;
-  font-weight: 700;
-  font-size: 20px;
+  font-family: 'Inter', sans-serif;
+font-weight: 600;
+font-size: 18px;
+letter-spacing: -0.01em;
 
   color: var(--ink);
   text-decoration: none;
@@ -86,12 +87,21 @@ nav {
   position: relative;
   color: var(--ink);
   text-decoration: none;
-  font-weight: 600;
-  font-size: 15px;
+
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+
   margin-left: 12px;
   padding: 10px 18px;
   border-radius: 999px;
-  transition: background 0.25s ease, color 0.25s ease,  transform 0.25s ease;;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+
   display: inline-block;
 }
 
@@ -215,9 +225,11 @@ nav {
 }
 
 h1 {
-  font-family: 'Baloo 2', sans-serif;
-  font-size: 46px;
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 600;
   line-height: 1.15;
+  letter-spacing: -0.02em;
   margin-bottom: 18px;
 }
 
@@ -319,8 +331,9 @@ h1 span {
 }
 
 .card h3 {
-  font-family: 'Baloo 2', sans-serif;
-  font-size: 18px;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 600;
   margin-bottom: 8px;
 }
 
@@ -340,8 +353,9 @@ h1 span {
 }
 
 .gallery h2 {
-  font-family: 'Baloo 2', sans-serif;
-  font-size: 30px;
+    font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  font-size: 32px;
   margin-bottom: 30px;
   color: var(--ink);
 }
@@ -404,10 +418,10 @@ h1 span {
 }
 
 .program-text h2 {
-  font-family: 'Baloo 2', sans-serif;
+  font-family: 'Playfair Display', serif;
   font-size: 32px;
   color: #fff;
-  text-transform: uppercase;
+  
   margin-bottom: 14px;
 }
 
@@ -491,7 +505,7 @@ h1 span {
 }
 
 .social-row h2 {
-  font-family: 'Baloo 2', sans-serif;
+  font-family: 'Playfair Display', serif;
   font-size: 22px;
   color: var(--navy);
   margin-bottom: 20px;
@@ -553,7 +567,7 @@ h1 span {
 }
 
 .footer-grid h3 {
-  font-family: 'Baloo 2', sans-serif;
+  font-family: 'Playfair Display', serif;
   font-size: 16px;
   color: var(--sun);
   text-transform: uppercase;
@@ -606,7 +620,7 @@ body.contact-page {
 }
 
 .contact-info h3 {
-  font-family: 'Baloo 2', sans-serif;
+  font-family: 'Playfair Display', serif;
   font-size: 20px;
   color: var(--maroon);
   margin-bottom: 20px;
@@ -643,7 +657,7 @@ body.contact-page {
   padding: 12px 14px;
   border: 2px solid #e5ded1;
   border-radius: 10px;
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   margin-bottom: 18px;
 }
@@ -839,7 +853,7 @@ body.contact-page {
 }
 
 .a11y-panel h4 {
-  font-family: 'Baloo 2', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 16px;
   margin-bottom: 12px;
 }
@@ -853,7 +867,7 @@ body.contact-page {
   border-radius: 8px;
   padding: 10px 12px;
   margin-bottom: 8px;
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   cursor: pointer;
   color: var(--ink);
