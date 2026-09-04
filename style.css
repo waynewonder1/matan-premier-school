@@ -466,38 +466,58 @@ h1 span {
 }
 
 /* ---------- Social row ---------- */
+/* ---------- Social row ---------- */
 
 .social-row {
   text-align: center;
   padding: 50px 24px;
+  background: var(--cream);
 }
 
 .social-row h2 {
   font-family: 'Baloo 2', sans-serif;
   font-size: 22px;
-  color: var(--white);
+  color: var(--navy);
   margin-bottom: 20px;
 }
 
 .social-icons {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 20px;
 }
 
 .social-icons a {
-  width: 50px;
-  height: 50px;
+  width: 52px;
+  height: 52px;
+
   border-radius: 50%;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   background: var(--navy);
-  color: #fff;
+  color: var(--white);
+
+  border: 2px solid var(--gold);
+
   text-decoration: none;
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 22px;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease;
 }
+
+.social-icons a:hover {
+  background: var(--maroon);
+  color: var(--white);
+  transform: translateY(-4px);
+}
+
 
 /* ---------- Footer ---------- */
 
