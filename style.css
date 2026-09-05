@@ -58,29 +58,61 @@ nav {
 .logo {
   display: flex;
   align-items: center;
-  gap: 14px;
-
-  font-family: 'Inter', sans-serif;
-font-weight: 600;
-font-size: 18px;
-letter-spacing: -0.01em;
+  gap: 12px;
 
   color: var(--ink);
   text-decoration: none;
 }
 
 .logo-mark {
-  width: 90px;
-  height: 90px;
+  width: 62px;
+  height: 62px;
 
   object-fit: contain;
-
   display: block;
+
+  flex-shrink: 0;
+}
+
+.logo-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logo-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.05;
+
+  color: var(--ink);
+}
+
+.logo-tagline {
+  font-family: 'Inter', sans-serif;
+
+  margin-top: 5px;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+
+  color: var(--gold);
 }
 
 .nav-links {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  position: relative;
 }
 
 .nav-links a {
