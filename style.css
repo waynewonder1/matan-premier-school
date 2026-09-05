@@ -1018,3 +1018,21 @@ body.contact-page {
   max-width: 600px;
   margin: 0 auto;
 }
+.site-header {
+  background: #ffffff;
+
+  padding: 14px 32px;
+
+  border-bottom: 1px solid rgba(23, 28, 53, 0.12);
+}
+.site-header .logo-name {
+  color: var(--navy);
+}
+
+.site-header .logo-tagline {
+  color: var(--maroon);
+}
+
+.site-header .nav-links a {
+  color: var(--navy);
+}
