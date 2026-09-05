@@ -1,124 +1,162 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gallery</title>
+<title>Gallery | Matan Premier Kindergarten</title>
+<meta name="description" content="Explore the classrooms, reception, outdoor spaces and learning environment at Matan Premier Kindergarten.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <section class="hero" style="padding-bottom: 40px;">
+<header class="site-header">
+  <nav class="site-nav">
+    <a href="index.html" class="logo">
+      <img src="Matan-Premier-Schools-Logo-FA.jpg" alt="Matan Premier Schools logo" class="logo-mark">
+      <span class="logo-copy">
+        <span class="logo-name">Matan Premier Kindergarten</span>
+        <span class="logo-tagline">Where Mastery Begins</span>
+      </span>
+    </a>
 
-        <nav>
-            <a href="index.html" class="logo"><img src="image/Screenshot 2026-07-21 224752.png" 
-                alt="Matan Premier Schools logo" class="logo-mark">
-                Matan Premier Schools</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
 
-            <button class="menu-toggle" id="menuToggle" aria-label=
-            "Open menu" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+    <div class="nav-links" id="navLinks">
+      <a href="about.html">About</a>
+      <a href="index.html#programs">Programs</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html" class="visit-btn">Book a Visit</a>
+    </div>
+  </nav>
+</header>
 
-            <div class="nav-links" id="navLinks">
-                <a href="about.html">About</a>
-                <a href="index.html#highlights">Programs</a>
-                <a href="gallery.html">Gallery</a>
-                <a href="#" class="visit-btn">Book a visit</a>
-            </div>
-        </nav>
+<main>
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <span class="section-kicker">Life at Matan</span>
+      <h1>Our Gallery</h1>
+      <p>A glimpse into the spaces, experiences and everyday moments that make Matan special.</p>
+    </div>
+  </section>
 
-        <div class="hero-content" style="max-width: 700px; margin: 0 auto; text-align: center;">
-            <span class="eyebrow">Take a look around!</span>
-            <h1>Our <span>gallery</span></h1>
-            <p style="max-width: 100%; margin: 0 auto;">Take a dynamic view of Matan Premier Schools</p>
-            </div>
-
-
-        </div>
-    </section>
-    
-   <section class="gallery">
-    <div class="gallery-grid">
-        <figure class="gallery-item">
-            <img src="image/Matan.logo2.jpeg" alt="Matan Premier Schools students in uniform" class="gallery-image">
-            <figcaption>Our Prestigious logo</figcaption>
-        </figure>
+  <section class="gallery-section">
+    <div class="gallery-heading">
+      <span class="section-kicker">Explore</span>
+      <h2>Our Campus</h2>
+      <p>Warm, welcoming spaces designed for young learners to feel comfortable, curious and ready to explore.</p>
     </div>
 
-    <section class="gallery">
-        <div class="gallery-grid">
-            <figure class="gallery-item">
-                <img src="image/outside.1.jpeg" alt="We welcome you to our school" class="gallery-image">
-                <figcaption>Our beautiful campus</figcaption>
-            </figure>
-        </div>
-        <div class="gallery-grid">
-            <figure class="gallery-item">
-                <img src="image/outside.2.jpeg" alt="Our Ambience" class="gallery-image">
-                <figcaption>Our warm welcome!</figcaption>
-            </figure>
-</section>
-<h1 style="text-align: center; margin-top: 40px;">Our Reception</h1>
-<p style="text-align: center; margin-bottom: 20px;">You are welcomed to Matan Premier Schools with a 
-    warm and inviting reception area that sets the tone for a positive and nurturing learning environment. Our reception is
-     designed to create a welcoming atmosphere for students, parents, and visitors alike.</p>
+    <div class="gallery-showcase">
+      <figure class="gallery-large"><img src="image/outside.1.jpeg" alt="Matan Premier Kindergarten campus"></figure>
+      <figure><img src="image/outside.2.jpeg" alt="Matan Premier Kindergarten outdoor area"></figure>
+      <figure><img src="image/Matan.logo2.jpeg" alt="Matan Premier Schools branding"></figure>
+    </div>
+  </section>
 
-    <section class="gallery">
-        <div class="gallery-grid">
-            <figure class="gallery-item">
-                <img src="image/reception.3.jpeg" alt="Our Reception" class="gallery-image">
-                <figcaption>Our Reception</figcaption>
-            </figure>
-        </div>
-        <div class="gallery-grid">
-            <figure class="gallery-item">
-                <img src="image/reception.4.jpeg" alt="Our Reception" class="gallery-image">
-                <figcaption>Our Reception</figcaption>
-            </figure>
-            <figure class="gallery-item">
-                <img src="image/reception.1.jpeg" alt="Our Reception" class="gallery-image">
-                <figcaption>Our Reception</figcaption>
-            </figure>
-        </div>
-    </section>
+  <section class="gallery-section">
+    <div class="gallery-heading">
+      <span class="section-kicker">Welcome</span>
+      <h2>Our Reception</h2>
+      <p>A welcoming first impression for children, parents and visitors.</p>
+    </div>
 
-<section style="padding-top: 60px;">
+    <div class="gallery-showcase">
+      <figure><img src="image/reception.3.jpeg" alt="Matan reception area"></figure>
+      <figure class="gallery-large"><img src="image/reception.4.jpeg" alt="Matan reception mural"></figure>
+      <figure><img src="image/reception.1.jpeg" alt="Matan reception"></figure>
+    </div>
+  </section>
 
-  <div class="program-block">
-    <img src="image/playgrounds.1.jpeg" alt="Playgroup children playing outdoors">
-    <div class="program-text">
-      <h2>Playgroup</h2>
-      <p>For our youngest learners, ages 2–3. Gentle routines, sensory play, and lots of one-on-one attention as children take their first steps away from home.</p>
-      <a href="#" class="get-details-btn">Get More Details</a>
+  <section class="gallery-section">
+    <div class="gallery-heading">
+      <span class="section-kicker">Learning</span>
+      <h2>Everyday at Matan</h2>
+      <p>Purposeful learning, play and exploration throughout the school day.</p>
+    </div>
+
+    <div class="gallery-showcase">
+      <figure class="gallery-large"><img src="image/class.1.jpeg" alt="Matan classroom"></figure>
+      <figure><img src="image/playgrounds.1.jpeg" alt="Children playing outdoors"></figure>
+      <figure><img src="image/toys.1.jpeg" alt="Learning toys at Matan"></figure>
+    </div>
+  </section>
+
+  <section class="program-summary">
+    <div class="section-heading">
+      <span class="section-kicker">Our Learning Journey</span>
+      <h2>Growing step by step.</h2>
+    </div>
+
+    <div class="program-summary-grid">
+      <article>
+        <span>Ages 2–3</span>
+        <h3>Playgroup</h3>
+        <p>Gentle routines, sensory play and close attention as children take their first steps into school life.</p>
+      </article>
+      <article>
+        <span>Ages 3–4</span>
+        <h3>Kindergarten 1</h3>
+        <p>Structured play, early literacy and numeracy, and growing independence in a warm classroom environment.</p>
+      </article>
+      <article>
+        <span>Ages 4–5</span>
+        <h3>Kindergarten 2</h3>
+        <p>Building reading, writing and problem-solving skills while preparing confidently for the next stage of school.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <span class="section-kicker">Come and explore</span>
+    <h2>Experience Matan in person.</h2>
+    <a href="contact.html" class="btn-primary">Book a Visit</a>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <h3>Matan Premier Kindergarten</h3>
+      <p>Where Mastery Begins.</p>
+      <p>Kiamumbi, Quito Street · QS 54</p>
+    </div>
+
+    <div>
+      <h3>Quick Links</h3>
+      <a href="about.html">About</a>
+      <a href="index.html#programs">Programs</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div>
+      <h3>Contact</h3>
+      <a href="tel:+254712000805">0712 000 805</a>
+      <a href="tel:+254721605578">0721 605 578</a>
+      <a href="mailto:info@matanpremierschools.com">info@matanpremierschools.com</a>
+    </div>
+
+    <div>
+      <h3>Follow</h3>
+      <div class="footer-social">
+        <a href="https://www.tiktok.com/@matanpremierschools" aria-label="TikTok" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://instagram.com/matanpremierschools" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://wa.me/254712000805" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
     </div>
   </div>
 
-  <div class="program-block">
-    <img src="image/class.1.jpeg" alt="Kindergarten 1 classroom">
-    <div class="program-text">
-      <h2>Kindergarten 1</h2>
-      <p>Ages 3–4. Structured play, early literacy and numbers, and a growing sense of independence — all in a warm, familiar classroom.</p>
-      <a href="#" class="get-details-btn">Get More Details</a>
-    </div>
-  </div>
-
-  <div class="program-block">
-    <img src="image/reception.1.jpeg" alt="Reception class students learning">
-    <div class="program-text">
-      <h2>Kindergarten 2</h2>
-      <p>Ages 4–5. Building on reading, writing, and problem-solving skills, and preparing confidently for the transition into primary school.</p>
-      <a href="#" class="get-details-btn">Get More Details</a>
-    </div>
-  </div>
-  
-</section>
+  <div class="footer-bottom">Copyright © Matan Premier Schools 2026. All Rights Reserved.</div>
+</footer>
 <button class="a11y-toggle" id="a11yToggle" aria-label="Accessibility options">♿</button>
 
-<div class="a11y-panel" id="a11yPanel">
+<div class="a11y-panel" id="a11yPanel" aria-hidden="true">
   <h4>Accessibility Options</h4>
   <button id="a11yIncreaseSpacing">Increase Text Spacing</button>
   <button id="a11yDecreaseSpacing">Decrease Text Spacing</button>
@@ -126,3 +164,6 @@
   <button id="a11yUnderline">Underline Links</button>
   <button id="a11yReset">Reset</button>
 </div>
+<script src="script.js"></script>
+</body>
+</html>

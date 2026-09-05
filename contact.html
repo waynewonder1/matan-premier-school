@@ -3,73 +3,134 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact Us — Matan Premier Schools</title>
+<title>Contact Us | Matan Premier Kindergarten</title>
+<meta name="description" content="Contact Matan Premier Kindergarten in Kiamumbi to ask about enrolment, school visits and admissions.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link rel="stylesheet" href="style.css">
 </head>
 <body class="contact-page">
 
-<section class="hero" style="padding-bottom: 40px;">
-
-  <nav>
-    <a href="index.html" class="logo"><img src="image/Screenshot 2026-07-21 224752.png" alt="Matan Premier Schools logo" class="logo-mark">Matan Premier Schools</a>
+<header class="site-header">
+  <nav class="site-nav">
+    <a href="index.html" class="logo">
+      <img src="Matan-Premier-Schools-Logo-FA.jpg" alt="Matan Premier Schools logo" class="logo-mark">
+      <span class="logo-copy">
+        <span class="logo-name">Matan Premier Kindergarten</span>
+        <span class="logo-tagline">Where Mastery Begins</span>
+      </span>
+    </a>
 
     <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </button>
 
     <div class="nav-links" id="navLinks">
       <a href="about.html">About</a>
-      <a href="index.html#highlights">Programs</a>
+      <a href="index.html#programs">Programs</a>
       <a href="gallery.html">Gallery</a>
-      <a href="contact.html" class="visit-btn">Contact Us</a>
+      <a href="contact.html" class="visit-btn">Book a Visit</a>
     </div>
   </nav>
+</header>
 
-  <div class="hero-text" style="max-width: 700px; margin: 0 auto; text-align: center;">
-    <span class="eyebrow">We'd love to hear from you</span>
-    <h1>Get in <span>touch</span></h1>
-    <p style="max-width: 100%; margin: 0 auto;">Questions about enrollment, a visit, or anything else — reach out any way that's easiest for you.</p>
-  </div>
-</section>
+<main>
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <span class="section-kicker">Contact Matan</span>
+      <h1>We'd love to meet you.</h1>
+      <p>Have a question about admissions, school visits or life at Matan? Our team would be happy to hear from you.</p>
+    </div>
+  </section>
 
-<section class="contact-section">
-  <div class="contact-grid">
+  <section class="contact-section">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <span class="section-kicker">Visit Us</span>
+        <h2>Come and see Matan.</h2>
+        <p>Kiamumbi, Quito Street · QS 54</p>
 
-    <div class="contact-info">
-      <h3>Visit us</h3>
+        <div class="contact-detail">
+          <h3>Call</h3>
+          <a href="tel:+254712000805">0712 000 805</a>
+          <a href="tel:+254721605578">0721 605 578</a>
+        </div>
+
+        <div class="contact-detail">
+          <h3>WhatsApp</h3>
+          <a href="https://wa.me/254712000805" target="_blank" rel="noopener noreferrer">Message us on WhatsApp</a>
+        </div>
+
+        <div class="contact-detail">
+          <h3>Email</h3>
+          <a href="mailto:info@matanpremierschools.com">info@matanpremierschools.com</a>
+        </div>
+      </div>
+
+      <form class="contact-form" id="contactForm">
+        <span class="section-kicker">Send a Message</span>
+        <h2>Tell us how we can help.</h2>
+
+        <label for="name">Your name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Phone number</label>
+        <input type="tel" id="phone" name="phone">
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <button type="submit">Send Message</button>
+        <p class="form-note">This form is currently a website demo. For the fastest response, call, email or WhatsApp the school.</p>
+        <p class="form-status" id="formStatus" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <h3>Matan Premier Kindergarten</h3>
+      <p>Where Mastery Begins.</p>
       <p>Kiamumbi, Quito Street · QS 54</p>
+    </div>
 
-      <h3 style="margin-top: 28px;">Call or WhatsApp</h3>
-      <a href="tel:0712000805">0712 000 805</a>
-      <a href="tel:0721605578">0721 605 578</a>
+    <div>
+      <h3>Quick Links</h3>
+      <a href="about.html">About</a>
+      <a href="index.html#programs">Programs</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </div>
 
-      <h3 style="margin-top: 28px;">Email</h3>
+    <div>
+      <h3>Contact</h3>
+      <a href="tel:+254712000805">0712 000 805</a>
+      <a href="tel:+254721605578">0721 605 578</a>
       <a href="mailto:info@matanpremierschools.com">info@matanpremierschools.com</a>
     </div>
 
-    <form class="contact-form">
-      <label for="name">Your name</label>
-      <input type="text" id="name" name="name" required>
-
-      <label for="email">Email address</label>
-      <input type="email" id="email" name="email" required>
-
-      <label for="message">Message</label>
-      <textarea id="message" name="message" required></textarea>
-
-      <button type="submit">Send message</button>
-    </form>
-
+    <div>
+      <h3>Follow</h3>
+      <div class="footer-social">
+        <a href="https://www.tiktok.com/@matanpremierschools" aria-label="TikTok" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://instagram.com/matanpremierschools" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://wa.me/254712000805" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </div>
   </div>
-</section>
 
+  <div class="footer-bottom">Copyright © Matan Premier Schools 2026. All Rights Reserved.</div>
+</footer>
 <button class="a11y-toggle" id="a11yToggle" aria-label="Accessibility options">♿</button>
 
-<div class="a11y-panel" id="a11yPanel">
+<div class="a11y-panel" id="a11yPanel" aria-hidden="true">
   <h4>Accessibility Options</h4>
   <button id="a11yIncreaseSpacing">Increase Text Spacing</button>
   <button id="a11yDecreaseSpacing">Decrease Text Spacing</button>
@@ -77,7 +138,6 @@
   <button id="a11yUnderline">Underline Links</button>
   <button id="a11yReset">Reset</button>
 </div>
-
 <script src="script.js"></script>
 </body>
 </html>
