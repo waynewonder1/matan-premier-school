@@ -45,7 +45,7 @@ textarea {
 }
 
 /* Utility bar */
-.utility-bar {
+/*.utility-bar {
   background: var(--maroon);
   color: #fff;
   padding: 8px 28px;
@@ -60,6 +60,160 @@ textarea {
   display: flex;
   align-items: center;
   gap: 18px;
+} 
+  */
+  /* =========================
+   TOP CONTACT BAR
+========================= */
+
+.utility-bar {
+  background: var(--maroon);
+  color: #fff;
+
+  min-height: 48px;
+  padding: 7px 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-size: 13px;
+}
+
+.utility-contact,
+.utility-right {
+  display: flex;
+  align-items: center;
+}
+
+.utility-contact {
+  gap: 18px;
+}
+
+.utility-contact a {
+  color: #fff;
+  text-decoration: none;
+}
+
+
+/* PHONE */
+
+.utility-phone {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  font-weight: 600;
+  letter-spacing: 0.02em;
+
+  transition: color 0.2s ease;
+}
+
+.utility-icon {
+  width: 28px;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--gold);
+  color: #fff;
+
+  border-radius: 50%;
+
+  font-size: 11px;
+}
+
+.utility-phone:hover {
+  color: var(--gold-light);
+}
+
+
+/* SMALL DIVIDER */
+
+.utility-divider {
+  width: 1px;
+  height: 22px;
+
+  background: rgba(255, 255, 255, 0.35);
+}
+
+
+/* EMAIL */
+
+.utility-email {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  color: rgba(255,255,255,0.9) !important;
+}
+
+.utility-email i {
+  color: var(--gold-light);
+  font-size: 15px;
+}
+
+.utility-email:hover {
+  color: #fff !important;
+}
+
+
+/* RIGHT SIDE */
+
+.utility-right {
+  gap: 16px;
+}
+
+.follow-label {
+  color: rgba(255,255,255,0.75);
+
+  font-size: 11px;
+  font-weight: 500;
+
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+
+/* SOCIAL ICONS */
+
+.utility-social {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.utility-social a {
+  width: 28px;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff;
+  text-decoration: none;
+
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 50%;
+
+  font-size: 12px;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.utility-social a:hover {
+  background: var(--gold);
+  color: var(--navy-dark);
+  border-color: var(--gold);
+
+  transform: translateY(-2px);
 }
 
 .utility-bar a {
