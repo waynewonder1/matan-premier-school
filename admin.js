@@ -10,6 +10,10 @@ const supabaseClient = window.supabase.createClient(
 );
 
 
+// =========================
+// PAGE ELEMENTS
+// =========================
+
 const loginSection =
   document.getElementById('loginSection');
 
@@ -34,64 +38,76 @@ const totalEnquiries =
 const latestCount =
   document.getElementById('latestCount');
 
+const enquirySearch =
+  document.getElementById('enquirySearch');
 
-// -------------------------
+
+// =========================
+// ENQUIRY DATA
+// =========================
+
+let allEnquiries = [];
+let currentFilter = 'all';
+
+
+// =========================
 // LOGIN
-// -------------------------
+// =========================
 
-loginForm.addEventListener('submit', async (event) => {
+if (loginForm) {
+  loginForm.addEventListener('submit', async (event) => {
 
-  event.preventDefault();
+    event.preventDefault();
 
-  const email =
-    document.getElementById('adminEmail').value.trim();
+    const email =
+      document.getElementById('adminEmail').value.trim();
 
-  const password =
-    document.getElementById('adminPassword').value;
+    const password =
+      document.getElementById('adminPassword').value;
 
-  loginStatus.textContent = 'Signing in...';
+    loginStatus.textContent = 'Signing in...';
 
-  const { data, error } =
-    await supabaseClient.auth.signInWithPassword({
-      email: email,
-      password: password
-    });
+    const { error } =
+      await supabaseClient.auth.signInWithPassword({
+        email: email,
+        password: password
+      });
 
-  if (error) {
+    if (error) {
+      console.error(error);
 
-    console.error(error);
+      loginStatus.textContent =
+        'Incorrect email or password.';
 
-    loginStatus.textContent =
-      'Incorrect email or password.';
+      return;
+    }
 
-    return;
-  }
+    loginStatus.textContent = '';
 
-  loginStatus.textContent = '';
-
-  showDashboard();
-
-});
+    await showDashboard();
+  });
+}
 
 
-// -------------------------
+// =========================
 // LOAD ENQUIRIES
-// -------------------------
+// =========================
 
 async function loadEnquiries() {
 
-  enquiriesList.innerHTML = 'Loading enquiries...';
+  enquiriesList.innerHTML =
+    'Loading enquiries...';
 
   const { data, error } =
     await supabaseClient
       .from('enquiries')
       .select('*')
+      .eq('archived', false)
       .order('created_at', {
         ascending: false
       });
 
   if (error) {
-
     console.error(error);
 
     enquiriesList.innerHTML =
@@ -100,89 +116,414 @@ async function loadEnquiries() {
     return;
   }
 
-  totalEnquiries.textContent = data.length;
+  allEnquiries = data || [];
+
+  totalEnquiries.textContent =
+    allEnquiries.length;
+
+  const newCount =
+    allEnquiries.filter(
+      enquiry =>
+        (enquiry.status || 'new') === 'new'
+    ).length;
 
   latestCount.textContent =
-    Math.min(data.length, 5);
+    newCount;
 
-  if (data.length === 0) {
+  renderEnquiries();
+}
+
+
+// =========================
+// RENDER ENQUIRIES
+// =========================
+
+function renderEnquiries() {
+
+  const searchTerm =
+    enquirySearch
+      ? enquirySearch.value.toLowerCase().trim()
+      : '';
+
+  let filtered = [...allEnquiries];
+
+
+  // FILTER BY STATUS
+
+  if (currentFilter !== 'all') {
+    filtered = filtered.filter(
+      enquiry =>
+        (enquiry.status || 'new') === currentFilter
+    );
+  }
+
+
+  // SEARCH
+
+  if (searchTerm) {
+
+    filtered = filtered.filter(enquiry => {
+
+      const searchableText = `
+        ${enquiry.name || ''}
+        ${enquiry.email || ''}
+        ${enquiry.phone || ''}
+        ${enquiry.message || ''}
+      `.toLowerCase();
+
+      return searchableText.includes(searchTerm);
+
+    });
+  }
+
+
+  // NO RESULTS
+
+  if (filtered.length === 0) {
 
     enquiriesList.innerHTML =
-      '<p>No enquiries yet.</p>';
+      '<p>No matching enquiries.</p>';
 
     return;
   }
 
+
   enquiriesList.innerHTML = '';
 
-  data.forEach((enquiry) => {
+
+  filtered.forEach((enquiry) => {
 
     const card =
       document.createElement('article');
 
-    card.className = 'enquiry-card';
+    card.className =
+      'enquiry-card';
+
+    const status =
+      enquiry.status || 'new';
 
     const date =
       new Date(enquiry.created_at)
         .toLocaleString();
 
-    card.innerHTML = `
-      <h3>${escapeHTML(enquiry.name)}</h3>
+    const safeName =
+      escapeHTML(enquiry.name);
 
-      <div class="enquiry-meta">
-        ${escapeHTML(enquiry.email)}
-        ${enquiry.phone
-          ? ' · ' + escapeHTML(enquiry.phone)
-          : ''}
-        <br>
-        ${date}
+    const safeEmail =
+      escapeHTML(enquiry.email);
+
+    const safePhone =
+      escapeHTML(enquiry.phone);
+
+    const safeMessage =
+      escapeHTML(enquiry.message);
+
+
+    const emailHTML =
+      enquiry.email
+        ? `
+          <a href="mailto:${safeEmail}">
+            ${safeEmail}
+          </a>
+        `
+        : 'No email provided';
+
+
+    const phoneHTML =
+      enquiry.phone
+        ? `
+          <a href="tel:${safePhone}">
+            ${safePhone}
+          </a>
+        `
+        : 'No phone provided';
+
+
+    card.innerHTML = `
+
+      <div class="enquiry-top">
+
+        <div>
+
+          <h3>
+            ${safeName}
+          </h3>
+
+          <div class="enquiry-meta contact-links">
+
+            ${emailHTML}
+
+            <br>
+
+            ${phoneHTML}
+
+            <br>
+
+            ${date}
+
+          </div>
+
+        </div>
+
+
+        <span class="status-badge status-${status}">
+          ${status}
+        </span>
+
       </div>
 
+
       <p>
-        ${escapeHTML(enquiry.message)}
+        ${safeMessage}
       </p>
+
+
+      <div class="enquiry-actions">
+
+        ${
+          status === 'new'
+            ? `
+              <button
+                onclick="updateStatus(${enquiry.id}, 'read')">
+
+                Mark as Read
+
+              </button>
+            `
+            : ''
+        }
+
+
+        ${
+          status !== 'contacted'
+            ? `
+              <button
+                class="contacted-btn"
+                onclick="updateStatus(${enquiry.id}, 'contacted')">
+
+                Mark as Contacted
+
+              </button>
+            `
+            : ''
+        }
+
+
+        <button
+          class="archive-btn"
+          onclick="archiveEnquiry(${enquiry.id})">
+
+          Archive
+
+        </button>
+
+
+        <button
+          class="delete-btn"
+          onclick="deleteEnquiry(${enquiry.id})">
+
+          Delete
+
+        </button>
+
+      </div>
     `;
 
     enquiriesList.appendChild(card);
 
   });
-
 }
 
 
-// -------------------------
+// =========================
+// UPDATE STATUS
+// =========================
+
+async function updateStatus(id, status) {
+
+  const { error } =
+    await supabaseClient
+      .from('enquiries')
+      .update({
+        status: status
+      })
+      .eq('id', id);
+
+  if (error) {
+
+    console.error(error);
+
+    alert(
+      'Could not update enquiry.'
+    );
+
+    return;
+  }
+
+  await loadEnquiries();
+}
+
+
+// =========================
+// ARCHIVE ENQUIRY
+// =========================
+
+async function archiveEnquiry(id) {
+
+  const confirmed =
+    confirm(
+      'Archive this enquiry?'
+    );
+
+  if (!confirmed) return;
+
+
+  const { error } =
+    await supabaseClient
+      .from('enquiries')
+      .update({
+        archived: true
+      })
+      .eq('id', id);
+
+  if (error) {
+
+    console.error(error);
+
+    alert(
+      'Could not archive enquiry.'
+    );
+
+    return;
+  }
+
+  await loadEnquiries();
+}
+
+
+// =========================
+// DELETE ENQUIRY
+// =========================
+
+async function deleteEnquiry(id) {
+
+  const confirmed =
+    confirm(
+      'Permanently delete this enquiry? This cannot be undone.'
+    );
+
+  if (!confirmed) return;
+
+
+  const { error } =
+    await supabaseClient
+      .from('enquiries')
+      .delete()
+      .eq('id', id);
+
+  if (error) {
+
+    console.error(error);
+
+    alert(
+      'Could not delete enquiry.'
+    );
+
+    return;
+  }
+
+  await loadEnquiries();
+}
+
+
+// =========================
+// SEARCH
+// =========================
+
+if (enquirySearch) {
+
+  enquirySearch.addEventListener(
+    'input',
+    renderEnquiries
+  );
+}
+
+
+// =========================
+// FILTER BUTTONS
+// =========================
+
+document
+  .querySelectorAll('.filter-btn')
+  .forEach(button => {
+
+    button.addEventListener(
+      'click',
+      () => {
+
+        document
+          .querySelectorAll('.filter-btn')
+          .forEach(btn =>
+            btn.classList.remove('active')
+          );
+
+        button.classList.add('active');
+
+        currentFilter =
+          button.dataset.filter;
+
+        renderEnquiries();
+
+      }
+    );
+
+  });
+
+
+// =========================
 // SHOW DASHBOARD
-// -------------------------
+// =========================
 
 async function showDashboard() {
 
-  loginSection.style.display = 'none';
+  loginSection.style.display =
+    'none';
 
-  dashboard.style.display = 'block';
+  dashboard.style.display =
+    'block';
 
   await loadEnquiries();
-
 }
 
 
-// -------------------------
+// =========================
 // LOGOUT
-// -------------------------
+// =========================
 
-logoutButton.addEventListener('click', async () => {
+if (logoutButton) {
 
-  await supabaseClient.auth.signOut();
+  logoutButton.addEventListener(
+    'click',
+    async () => {
 
-  dashboard.style.display = 'none';
+      await supabaseClient.auth.signOut();
 
-  loginSection.style.display = 'block';
+      dashboard.style.display =
+        'none';
 
-});
+      loginSection.style.display =
+        'block';
+
+      allEnquiries = [];
+
+    }
+  );
+}
 
 
-// -------------------------
-// CHECK EXISTING LOGIN
-// -------------------------
+// =========================
+// CHECK EXISTING SESSION
+// =========================
 
 async function checkSession() {
 
@@ -192,29 +533,25 @@ async function checkSession() {
     await supabaseClient.auth.getSession();
 
   if (session) {
-
-    showDashboard();
-
+    await showDashboard();
   }
-
 }
 
 checkSession();
 
 
-// -------------------------
+// =========================
 // ESCAPE USER CONTENT
-// -------------------------
+// =========================
 
 function escapeHTML(value) {
 
   if (!value) return '';
 
-  return value
+  return String(value)
     .replaceAll('&', '&amp;')
     .replaceAll('<', '&lt;')
     .replaceAll('>', '&gt;')
     .replaceAll('"', '&quot;')
     .replaceAll("'", '&#039;');
-
 }

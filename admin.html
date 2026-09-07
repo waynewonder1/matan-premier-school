@@ -130,6 +130,147 @@
         flex-direction: column;
       }
     }
+    .enquiry-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.enquiry-toolbar h2 {
+  margin-bottom: 5px;
+}
+
+.enquiry-toolbar p {
+  color: #C8CDD8;
+  margin: 0;
+}
+
+#enquirySearch {
+  width: 320px;
+  max-width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #39405e;
+  background: #111628;
+  color: white;
+  border-radius: 6px;
+}
+
+.filter-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.filter-btn {
+  background: #1A203A;
+  color: #C8CDD8;
+  border: 1px solid #39405e;
+  padding: 9px 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.filter-btn.active {
+  background: #B68A4E;
+  color: #111628;
+  border-color: #B68A4E;
+}
+
+.enquiry-card {
+  position: relative;
+}
+
+.enquiry-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 20px;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 999px;
+}
+
+.status-new {
+  background: rgba(182,138,78,0.2);
+  color: #D4B37D;
+}
+
+.status-read {
+  background: rgba(200,205,216,0.15);
+  color: #C8CDD8;
+}
+
+.status-contacted {
+  background: rgba(69,160,110,0.18);
+  color: #8fd1a9;
+}
+
+.enquiry-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.enquiry-actions button {
+  border: 1px solid #39405e;
+  background: transparent;
+  color: white;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.enquiry-actions button:hover {
+  background: #222943;
+}
+
+.enquiry-actions .contacted-btn {
+  border-color: #B68A4E;
+  color: #D4B37D;
+}
+
+.enquiry-actions .archive-btn {
+  color: #C8CDD8;
+}
+
+.enquiry-actions .delete-btn {
+  color: #ff9b9b;
+  border-color: rgba(255,120,120,0.4);
+}
+
+.contact-links a {
+  color: #D4B37D;
+  text-decoration: none;
+}
+
+.contact-links a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 700px) {
+  .enquiry-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  #enquirySearch {
+    width: 100%;
+  }
+
+  .enquiry-top {
+    flex-direction: column;
+  }
+}
   </style>
 </head>
 
@@ -201,11 +342,31 @@
       </section>
 
 
-      <h2>Recent Enquiries</h2>
+      <div class="enquiry-toolbar">
 
-      <div id="enquiriesList">
-        Loading enquiries...
-      </div>
+  <div>
+    <h2>Enquiries</h2>
+    <p>View and manage parent enquiries.</p>
+  </div>
+
+  <input
+    type="search"
+    id="enquirySearch"
+    placeholder="Search enquiries..."
+  >
+
+</div>
+
+<div class="filter-row">
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="new">New</button>
+  <button class="filter-btn" data-filter="read">Read</button>
+  <button class="filter-btn" data-filter="contacted">Contacted</button>
+</div>
+
+<div id="enquiriesList">
+  Loading enquiries...
+</div>
 
     </div>
 
