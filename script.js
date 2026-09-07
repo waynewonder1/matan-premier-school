@@ -41,6 +41,18 @@ if (menuToggle && navLinks) {
   });
 }
 
+/*// ---------- Hero image carousel ----------
+
+const slides = document.querySelectorAll('.carousel-slide');
+let currentSlide = 0;
+
+if (slides.length > 0) {
+  setInterval(() => {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
+  }, 4000);
+}*/
 // ---------- Hero image carousel ----------
 
 const slides = document.querySelectorAll('.carousel-slide');
@@ -53,6 +65,83 @@ if (slides.length > 0) {
     slides[currentSlide].classList.add('active');
   }, 4000);
 }
+
+
+// ==========================================
+// SUPABASE + CONTACT FORM
+// ==========================================
+
+const SUPABASE_URL = 'https://rfppiqqfojbcqehsvwcr.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_qfbst0yt9KjV-Iwt02T8AA_Dq3Ev5KV';
+
+const db = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
+
+const contactForm = document.getElementById('contactForm');
+const formStatus = document.getElementById('formStatus');
+
+if (contactForm && formStatus) {
+
+  contactForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const submitButton =
+      contactForm.querySelector('button[type="submit"]');
+
+    const name =
+      document.getElementById('name').value.trim();
+
+    const email =
+      document.getElementById('email').value.trim();
+
+    const phone =
+      document.getElementById('phone').value.trim();
+
+    const message =
+      document.getElementById('message').value.trim();
+
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending...';
+
+    formStatus.textContent = '';
+
+    const { error } = await db
+      .from('enquiries')
+      .insert([
+        {
+          name: name,
+          email: email,
+          phone: phone || null,
+          message: message
+        }
+      ]);
+
+    if (error) {
+      console.error('Supabase error:', error);
+
+      formStatus.textContent =
+        'Sorry, we could not send your message. Please try again.';
+
+      submitButton.disabled = false;
+      submitButton.textContent = 'Send Message';
+
+      return;
+    }
+
+    formStatus.textContent =
+      'Thank you! Your message has been received. Matan Premier Schools will be in touch soon.';
+
+    contactForm.reset();
+
+    submitButton.disabled = false;
+    submitButton.textContent = 'Send Message';
+  });
+}
+
+
+// ---------- Magnifying glass ----------
 
 // ---------- Magnifying glass ----------
 
