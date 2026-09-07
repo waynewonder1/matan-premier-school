@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Matan Admin Dashboard</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      background: #14181F;
+      color: white;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+    }
+
+    .admin-container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 50px 24px;
+    }
+
+    .admin-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .admin-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      margin: 0;
+    }
+
+    .admin-login {
+      max-width: 420px;
+      margin: 80px auto;
+      background: #1A203A;
+      padding: 35px;
+      border-radius: 12px;
+    }
+
+    .admin-login h2 {
+      font-family: 'Playfair Display', serif;
+      margin-top: 0;
+    }
+
+    .admin-login input {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: 1px solid #444;
+      box-sizing: border-box;
+    }
+
+    .admin-login button,
+    .logout-btn {
+      background: #B68A4E;
+      border: none;
+      padding: 13px 22px;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .dashboard {
+      display: none;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-bottom: 35px;
+    }
+
+    .stat-card {
+      background: #1A203A;
+      padding: 25px;
+      border-left: 4px solid #B68A4E;
+    }
+
+    .stat-card span {
+      display: block;
+      font-size: 32px;
+      font-weight: 700;
+      margin-top: 8px;
+    }
+
+    .enquiry-card {
+      background: #1A203A;
+      padding: 25px;
+      margin-bottom: 18px;
+      border: 1px solid #2f3654;
+    }
+
+    .enquiry-card h3 {
+      margin-top: 0;
+      color: #D4B37D;
+    }
+
+    .enquiry-meta {
+      color: #C8CDD8;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .admin-status {
+      margin-top: 15px;
+      color: #D4B37D;
+    }
+
+    @media (max-width: 700px) {
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .admin-header {
+        align-items: flex-start;
+        gap: 20px;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section id="loginSection" class="admin-login">
+
+    <h2>Matan Admin</h2>
+
+    <p>Sign in to view school enquiries.</p>
+
+    <form id="adminLoginForm">
+
+      <input
+        type="email"
+        id="adminEmail"
+        placeholder="Email"
+        required
+      >
+
+      <input
+        type="password"
+        id="adminPassword"
+        placeholder="Password"
+        required
+      >
+
+      <button type="submit">
+        Sign In
+      </button>
+
+      <p id="loginStatus" class="admin-status"></p>
+
+    </form>
+
+  </section>
+
+
+  <main id="dashboard" class="dashboard">
+
+    <div class="admin-container">
+
+      <div class="admin-header">
+
+        <div>
+          <p>Matan Premier Schools</p>
+          <h1>Admin Dashboard</h1>
+        </div>
+
+        <button id="logoutButton" class="logout-btn">
+          Log Out
+        </button>
+
+      </div>
+
+
+      <section class="stats">
+
+        <div class="stat-card">
+          Total Enquiries
+          <span id="totalEnquiries">0</span>
+        </div>
+
+        <div class="stat-card">
+          Latest Enquiries
+          <span id="latestCount">0</span>
+        </div>
+
+      </section>
+
+
+      <h2>Recent Enquiries</h2>
+
+      <div id="enquiriesList">
+        Loading enquiries...
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="admin.js"></script>
+
+</body>
+</html>
