@@ -74,15 +74,18 @@ if (slides.length > 0) {
 const SUPABASE_URL = 'https://rfppiqqfojbcqehsvwcr.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_qfbst0yt9KjV-Iwt02T8AA_Dq3Ev5KV';
 
-const db = window.supabase.createClient(
+/*const db = window.supabase.createClient(
   SUPABASE_URL,
   SUPABASE_KEY
-);
+);*/
+const db = window.supabase
+  ? window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY)
+  : null;
 
 const contactForm = document.getElementById('contactForm');
 const formStatus = document.getElementById('formStatus');
 
-if (contactForm && formStatus) {
+if (contactForm && formStatus && db) {
 
   contactForm.addEventListener('submit', async (event) => {
     event.preventDefault();
