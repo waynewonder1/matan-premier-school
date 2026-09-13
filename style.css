@@ -1246,3 +1246,27 @@ p {
   }
 
 }
+@media (max-width: 500px) {
+
+  .utility-bar {
+    gap: 8px;
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .utility-bar .utility-email {
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .utility-bar .social-links {
+    gap: 5px;
+  }
+
+  .utility-bar .social-links a {
+    width: 30px;
+    height: 30px;
+  }
+
+}
