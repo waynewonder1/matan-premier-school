@@ -1174,11 +1174,76 @@ p {
 }
 
 @media (max-width: 520px) {
-  .utility-contact {
-    flex-direction: column;
-    gap: 4px;
+
+  /* =========================
+     MOBILE MAROON CONTACT BAR
+  ========================= */
+
+  .utility-bar {
+    display: flex;
+    min-height: 40px;
+    padding: 6px 12px;
+    justify-content: center;
+    gap: 10px;
   }
 
+  .utility-contact {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-width: 0;
+  }
+
+  /* Hide the email on very small screens */
+  .utility-email {
+    display: none;
+  }
+
+  /* Hide the divider because email is hidden */
+  .utility-divider {
+    display: none;
+  }
+
+  .utility-phone {
+    gap: 6px;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+
+  .utility-icon {
+    width: 23px;
+    height: 23px;
+    font-size: 9px;
+  }
+
+  /* Follow us + social icons */
+
+  .utility-right {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .follow-label {
+    display: none;
+  }
+
+  .utility-social {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .utility-social a {
+    width: 23px;
+    height: 23px;
+    font-size: 10px;
+  }
+
+  /* Keep the rest of your existing mobile styles */
+  
   .logo-name {
     font-size: 15px;
   }
