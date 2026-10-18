@@ -1,0 +1,26 @@
+# Free Supabase projects pause after about a week without activity, which
+# would stop the contact form, applications and auto-reply emails.
+# This pings the database twice a week so the project stays active.
+
+name: Keep Supabase awake
+
+on:
+  schedule:
+    - cron: '0 6 * * 1,4'   # Mondays and Thursdays, 06:00 UTC (09:00 Nairobi)
+  workflow_dispatch:         # allows a manual run from the Actions tab
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping the Supabase database
+        run: |
+          status=$(curl -s -o /dev/null -w "%{http_code}" \
+            "https://rfppiqqfojbcqehsvwcr.supabase.co/rest/v1/enquiries?select=id&limit=1" \
+            -H "apikey: sb_publishable_qfbst0yt9KjV-Iwt02T8AA_Dq3Ev5KV")
+          echo "Supabase responded with HTTP $status"
+          # 2xx/4xx means the database answered; 5xx or 000 means it is down or paused.
+          if [ "$status" -ge 500 ] || [ "$status" = "000" ]; then
+            echo "Supabase did not respond normally - the project may be paused."
+            exit 1
+          fi
