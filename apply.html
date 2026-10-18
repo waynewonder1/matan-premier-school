@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply Now | Matan Premier Kindergarten</title>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="description" content="Apply online for a place at Matan Premier Kindergarten in Kiamumbi for children aged 2 to 5.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="contact-page">
+
+<header class="site-header">
+  <nav class="site-nav">
+    <a href="index.html" class="logo">
+      <img src="Matan-Premier-Schools-Logo-FA.jpg" alt="Matan Premier Schools logo" class="logo-mark">
+      <span class="logo-copy">
+        <span class="logo-name">Matan Premier Kindergarten</span>
+        <span class="logo-tagline">Where Mastery Begins</span>
+      </span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <div class="nav-links" id="navLinks">
+      <a href="about.html">About</a>
+      <a href="index.html#programs">Programs</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="faq.html">FAQ</a>
+      <a href="apply.html">Apply</a>
+      <a href="contact.html" class="visit-btn">Book a Visit</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <span class="section-kicker">Admissions</span>
+      <h1>Apply to Matan.</h1>
+      <p>Fill in the form below to apply for a place for your child. It takes about 5 minutes, and we will get back to you with the next steps.</p>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <form class="contact-form apply-form" id="applyForm">
+      <span class="section-kicker">Application Form</span>
+      <h2>About your child</h2>
+
+      <div class="form-grid">
+        <div>
+          <label for="childName">Child's full name</label>
+          <input type="text" id="childName" required>
+        </div>
+        <div>
+          <label for="childDob">Date of birth</label>
+          <input type="date" id="childDob" required>
+        </div>
+        <div>
+          <label for="childGender">Gender</label>
+          <select id="childGender" required>
+            <option value="">Select…</option>
+            <option>Girl</option>
+            <option>Boy</option>
+          </select>
+        </div>
+        <div>
+          <label for="childClass">Class applying for</label>
+          <select id="childClass" required>
+            <option value="">Select…</option>
+            <option>Daycare / Playgroup (2–3 years)</option>
+            <option>PP1 (4 years)</option>
+            <option>PP2 (5 years)</option>
+            <option>Not sure – please advise</option>
+          </select>
+        </div>
+        <div>
+          <label for="startDate">Preferred start date</label>
+          <input type="date" id="startDate">
+        </div>
+        <div>
+          <label for="previousSchool">Previous school (if any)</label>
+          <input type="text" id="previousSchool">
+        </div>
+      </div>
+
+      <label for="medicalNotes">Allergies, medical or special needs (optional)</label>
+      <textarea id="medicalNotes" class="short-textarea"></textarea>
+
+      <h2 class="form-section-title">Parent / guardian</h2>
+
+      <div class="form-grid">
+        <div>
+          <label for="parentName">Your full name</label>
+          <input type="text" id="parentName" required>
+        </div>
+        <div>
+          <label for="relationship">Relationship to child</label>
+          <select id="relationship" required>
+            <option value="">Select…</option>
+            <option>Mother</option>
+            <option>Father</option>
+            <option>Guardian</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div>
+          <label for="parentPhone">Phone number</label>
+          <input type="tel" id="parentPhone" required>
+        </div>
+        <div>
+          <label for="parentEmail">Email address</label>
+          <input type="email" id="parentEmail" required>
+        </div>
+        <div>
+          <label for="homeArea">Home area / estate</label>
+          <input type="text" id="homeArea" required>
+        </div>
+        <div>
+          <label for="transport">Do you need school transport?</label>
+          <select id="transport" required>
+            <option value="">Select…</option>
+            <option>Yes</option>
+            <option>No</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+      </div>
+
+      <label for="heardFrom">How did you hear about us? (optional)</label>
+      <select id="heardFrom">
+        <option value="">Select…</option>
+        <option>Friend or family</option>
+        <option>Google</option>
+        <option>Instagram / TikTok</option>
+        <option>Walked or drove past</option>
+        <option>Other</option>
+      </select>
+
+      <label for="extraNotes">Anything else you would like us to know? (optional)</label>
+      <textarea id="extraNotes" class="short-textarea"></textarea>
+
+      <label class="checkbox-label">
+        <input type="checkbox" id="consent" required>
+        <span>I agree that Matan Premier Schools may store and use these details to process this application, as described in the <a href="privacy-policy.html" target="_blank">Privacy Policy</a>.</span>
+      </label>
+
+      <button type="submit">Submit Application</button>
+      <p class="form-status" id="applyStatus" aria-live="polite"></p>
+    </form>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <h3>Matan Premier Kindergarten</h3>
+      <p>Where Mastery Begins.</p>
+      <p>Kiamumbi, Quito Street · QS 54</p>
+    </div>
+
+    <div>
+      <h3>Quick Links</h3>
+      <a href="about.html">About</a>
+      <a href="index.html#programs">Programs</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="faq.html">FAQ</a>
+      <a href="apply.html">Apply</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms-of-service.html">Terms of Service</a>
+    </div>
+
+    <div>
+      <h3>Contact</h3>
+      <a href="tel:+254712000805">0712 000 805</a>
+      <a href="tel:+254721605578">0721 605 578</a>
+      <a href="mailto:matanpremierschools@gmail.com">matanpremierschools@gmail.com</a>
+    </div>
+
+    <div>
+      <h3>Follow</h3>
+      <div class="footer-social">
+        <a href="https://www.tiktok.com/@matanpremierschools" aria-label="TikTok" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://instagram.com/matanpremierschools" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://wa.me/254712000805" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">Copyright © Matan Premier Schools 2026. All Rights Reserved.</div>
+</footer>
+<button class="a11y-toggle" id="a11yToggle" aria-label="Accessibility options">♿</button>
+
+<div class="a11y-panel" id="a11yPanel" aria-hidden="true">
+  <h4>Accessibility Options</h4>
+  <button id="a11yIncreaseSpacing">Increase Text Spacing</button>
+  <button id="a11yDecreaseSpacing">Decrease Text Spacing</button>
+  <button id="a11yInvert">Invert Colours</button>
+  <button id="a11yUnderline">Underline Links</button>
+  <button id="a11yReset">Reset</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
+</body>
+</html>

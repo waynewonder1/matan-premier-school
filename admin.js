@@ -148,9 +148,13 @@ function renderEnquiries() {
   let filtered = [...allEnquiries];
 
 
-  // FILTER BY STATUS
+  // FILTER BY TYPE OR STATUS
 
-  if (currentFilter !== 'all') {
+  if (currentFilter === 'admission') {
+    filtered = filtered.filter(
+      enquiry => enquiry.type === 'admission'
+    );
+  } else if (currentFilter !== 'all') {
     filtered = filtered.filter(
       enquiry =>
         (enquiry.status || 'new') === currentFilter
@@ -169,6 +173,7 @@ function renderEnquiries() {
         ${enquiry.email || ''}
         ${enquiry.phone || ''}
         ${enquiry.message || ''}
+        ${enquiry.details ? Object.values(enquiry.details).join(' ') : ''}
       `.toLowerCase();
 
       return searchableText.includes(searchTerm);
@@ -239,11 +244,29 @@ function renderEnquiries() {
         : 'No phone provided';
 
 
+    const isAdmission =
+      enquiry.type === 'admission';
+
+    const typeLabel =
+      isAdmission
+        ? 'Admission application'
+        : `Enquiry${enquiry.topic ? ' · ' + (TOPIC_LABELS[enquiry.topic] || enquiry.topic) : ''}`;
+
+    const detailsHTML =
+      isAdmission && enquiry.details
+        ? renderApplicationDetails(enquiry.details)
+        : '';
+
+
     card.innerHTML = `
 
       <div class="enquiry-top">
 
         <div>
+
+          <span class="type-tag ${isAdmission ? 'type-admission' : ''}">
+            ${escapeHTML(typeLabel)}
+          </span>
 
           <h3>
             ${safeName}
@@ -276,6 +299,8 @@ function renderEnquiries() {
       <p>
         ${safeMessage}
       </p>
+
+      ${detailsHTML}
 
 
       <div class="enquiry-actions">
@@ -538,6 +563,49 @@ async function checkSession() {
 }
 
 checkSession();
+
+
+// =========================
+// ADMISSION APPLICATION DETAILS
+// =========================
+
+const TOPIC_LABELS = {
+  visit: 'School visit',
+  fees: 'Fees & transport',
+  admissions: 'Admissions',
+  other: 'Other'
+};
+
+const APPLICATION_FIELDS = [
+  ['child_name', "Child's name"],
+  ['child_dob', 'Date of birth'],
+  ['child_gender', 'Gender'],
+  ['class_applying', 'Class applying for'],
+  ['start_date', 'Preferred start date'],
+  ['previous_school', 'Previous school'],
+  ['medical_notes', 'Allergies / medical'],
+  ['parent_name', 'Parent / guardian'],
+  ['relationship', 'Relationship'],
+  ['parent_phone', 'Phone'],
+  ['parent_email', 'Email'],
+  ['home_area', 'Home area'],
+  ['transport', 'Needs transport'],
+  ['heard_from', 'Heard about us via'],
+  ['extra_notes', 'Other notes']
+];
+
+function renderApplicationDetails(details) {
+
+  const rows = APPLICATION_FIELDS
+    .filter(([key]) => details[key])
+    .map(([key, label]) => `
+      <dt>${label}</dt>
+      <dd>${escapeHTML(details[key])}</dd>
+    `)
+    .join('');
+
+  return `<dl class="application-details">${rows}</dl>`;
+}
 
 
 // =========================

@@ -105,6 +105,9 @@ if (contactForm && formStatus && db) {
     const message =
       document.getElementById('message').value.trim();
 
+    const topicField = document.getElementById('topic');
+    const topic = topicField ? topicField.value : null;
+
     submitButton.disabled = true;
     submitButton.textContent = 'Sending...';
 
@@ -117,7 +120,8 @@ if (contactForm && formStatus && db) {
           name: name,
           email: email,
           phone: phone || null,
-          message: message
+          message: message,
+          topic: topic || null
         }
       ]);
 
@@ -140,6 +144,84 @@ if (contactForm && formStatus && db) {
 
     submitButton.disabled = false;
     submitButton.textContent = 'Send Message';
+  });
+}
+
+
+// ==========================================
+// ADMISSION APPLICATION FORM
+// ==========================================
+
+const applyForm = document.getElementById('applyForm');
+const applyStatus = document.getElementById('applyStatus');
+
+if (applyForm && applyStatus && db) {
+
+  applyForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const submitButton =
+      applyForm.querySelector('button[type="submit"]');
+
+    const value = (id) =>
+      document.getElementById(id).value.trim();
+
+    const details = {
+      child_name: value('childName'),
+      child_dob: value('childDob'),
+      child_gender: value('childGender'),
+      class_applying: value('childClass'),
+      start_date: value('startDate') || null,
+      previous_school: value('previousSchool') || null,
+      medical_notes: value('medicalNotes') || null,
+      parent_name: value('parentName'),
+      relationship: value('relationship'),
+      parent_phone: value('parentPhone'),
+      parent_email: value('parentEmail'),
+      home_area: value('homeArea'),
+      transport: value('transport'),
+      heard_from: value('heardFrom') || null,
+      extra_notes: value('extraNotes') || null,
+      consent: document.getElementById('consent').checked
+    };
+
+    submitButton.disabled = true;
+    submitButton.textContent = 'Submitting...';
+
+    applyStatus.textContent = '';
+
+    const { error } = await db
+      .from('enquiries')
+      .insert([
+        {
+          type: 'admission',
+          name: details.parent_name,
+          email: details.parent_email,
+          phone: details.parent_phone,
+          message: `Admission application for ${details.child_name} – ${details.class_applying}`,
+          details: details
+        }
+      ]);
+
+    if (error) {
+      console.error('Supabase error:', error);
+
+      applyStatus.textContent =
+        'Sorry, we could not submit your application. Please try again or call us on 0712 000 805.';
+
+      submitButton.disabled = false;
+      submitButton.textContent = 'Submit Application';
+
+      return;
+    }
+
+    applyStatus.textContent =
+      `Thank you! We have received the application for ${details.child_name}. Please check your email for a confirmation.`;
+
+    applyForm.reset();
+
+    submitButton.disabled = false;
+    submitButton.textContent = 'Submit Application';
   });
 }
 
