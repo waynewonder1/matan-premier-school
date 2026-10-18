@@ -63,11 +63,29 @@ const TOPIC_REPLIES: Record<string, string> = {
     <p>We will get in touch to confirm the exact amounts and whether our transport covers
     your area.</p>`,
   admissions: `
-    <p>We take children aged <strong>2 to 5 years</strong>, from daycare and playgroup to
-    PP1 and PP2. The quickest way to start is our short online application form:</p>
-    <p><a href="${SITE_URL}/apply.html" style="display: inline-block; background: #6A171A;
-    color: #fff; padding: 10px 18px; text-decoration: none; border-radius: 3px;">Apply online</a></p>`,
+    <p>The quickest way to secure a place is our short online application form — the
+    link is just below.</p>`,
 };
+
+// Short introduction to Matan, added to every contact-form reply.
+const MATAN_BRIEF = `
+  <div style="margin-top: 24px; padding: 18px 20px; background: #f7f3ec; border-left: 4px solid #B68A4E;">
+    <h3 style="margin: 0 0 8px; color: #7a1f1f;">About Matan Premier Kindergarten</h3>
+    <p style="margin: 0 0 10px;">Matan is a warm, nurturing early-learning school in Kiamumbi
+    that opened in 2026. Through play-based learning with gentle structure, our small classes
+    help every child build early literacy, numeracy, confidence and independence.</p>
+    <ul style="margin: 0 0 14px; padding-left: 20px;">
+      <li><strong>Ages:</strong> 2 to 5 years (daycare, playgroup, PP1 and PP2)</li>
+      <li><strong>School day:</strong> 8:00 AM – 3:00 PM, Monday to Friday</li>
+      <li><strong>Meals:</strong> balanced breakfast and lunch, plus a snack before home time</li>
+      <li><strong>School fees:</strong> about KES 20,000 per term (meals included)</li>
+      <li><strong>Transport:</strong> available at about KES 7,000 per term</li>
+      <li><strong>Location:</strong> ${ADDRESS}</li>
+    </ul>
+    <p style="margin: 0 0 6px;">Ready to join us? Apply online in about 5 minutes:</p>
+    <a href="${SITE_URL}/apply.html" style="display: inline-block; background: #6A171A;
+    color: #fff; padding: 10px 18px; text-decoration: none; border-radius: 3px;">Apply Now</a>
+  </div>`;
 
 const APPLICATION_FIELDS: [string, string][] = [
   ['child_name', "Child's name"],
@@ -172,6 +190,7 @@ function enquiryParentEmail(enquiry: Enquiry) {
       within one working day.</p>
       ${topicReply}
       <p>For anything urgent, please call us on <strong>${PHONES}</strong>.</p>
+      ${MATAN_BRIEF}
       <p style="margin-top: 24px;">Here is a copy of your message:</p>
       ${quote(enquiry.message)}
       <p style="margin-top: 16px;">You may also find a quick answer in our
