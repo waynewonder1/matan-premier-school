@@ -53,15 +53,10 @@ const TOPIC_REPLIES: Record<string, string> = {
     that suits you.</p>
     <p>You will find us at <strong>${ADDRESS}</strong>.</p>`,
   fees: `
-    <p>Here is a quick summary while we prepare a full answer for you:</p>
-    <ul>
-      <li><strong>School fees:</strong> about KES 20,000 per term, including breakfast,
-      lunch and an afternoon snack</li>
-      <li><strong>Transport:</strong> about KES 7,000 per term</li>
-      <li><strong>School hours:</strong> 8:00 AM – 3:00 PM, Monday to Friday</li>
-    </ul>
-    <p>We will get in touch to confirm the exact amounts and whether our transport covers
-    your area.</p>`,
+    <p>Thank you for asking about our fees. We will get in touch shortly to share our
+    current fee structure, meal plan and transport charges, and to confirm whether our
+    transport covers your area.</p>
+    <p>School hours are <strong>8:00 AM – 3:00 PM, Monday to Friday</strong>.</p>`,
   admissions: `
     <p>The quickest way to secure a place is our short online application form — the
     link is just below.</p>`,
@@ -77,9 +72,9 @@ const MATAN_BRIEF = `
     <ul style="margin: 0 0 14px; padding-left: 20px;">
       <li><strong>Ages:</strong> 2 to 5 years (daycare, playgroup, PP1 and PP2)</li>
       <li><strong>School day:</strong> 8:00 AM – 3:00 PM, Monday to Friday</li>
-      <li><strong>Meals:</strong> balanced breakfast and lunch, plus a snack before home time</li>
-      <li><strong>School fees:</strong> about KES 20,000 per term (meals included)</li>
-      <li><strong>Transport:</strong> available at about KES 7,000 per term</li>
+      <li><strong>Meals:</strong> nutritious meals provided during the school day</li>
+      <li><strong>Transport:</strong> available (ask us about charges and areas covered)</li>
+      <li><strong>Term 1, 2027:</strong> begins Wednesday, 6th January 2027</li>
       <li><strong>Location:</strong> ${ADDRESS}</li>
     </ul>
     <p style="margin: 0 0 6px;">Ready to join us? Apply online in about 5 minutes:</p>
@@ -248,8 +243,6 @@ function admissionParentEmail(enquiry: Enquiry, details: Record<string, unknown>
         <li>We will invite you and ${child} to visit the school and meet the teachers.</li>
         <li>We will then confirm the place, the start date and the fees.</li>
       </ol>
-      <p>As a reminder, school fees are about <strong>KES 20,000 per term</strong>
-      (meals included) and transport is about <strong>KES 7,000 per term</strong>.</p>
       <p style="margin-top: 24px;"><strong>A copy of your application:</strong></p>
       ${applicationTable(details)}
       <p style="margin-top: 16px;">If anything above is wrong, simply reply to this email.</p>
