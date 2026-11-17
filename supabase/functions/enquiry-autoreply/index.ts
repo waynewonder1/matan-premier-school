@@ -82,6 +82,8 @@ const MATAN_BRIEF = `
       <li><strong>School day:</strong> 8:00 AM – 3:00 PM, Monday to Friday</li>
       <li><strong>Fees:</strong> from KES 20,000 per term, meals included
       (<a href="${SITE_URL}/fees.html">see all fees</a>)</li>
+      <li><strong>Meals:</strong> tea break, lunch and an afternoon snack every day
+      (<a href="${SITE_URL}/fees.html#meals">see the weekly meal plan</a>)</li>
       <li><strong>Transport:</strong> by zone, from KES 8,000 per term</li>
       <li><strong>Term 1, 2027:</strong> begins Wednesday, 6th January 2027</li>
       <li><strong>Location:</strong> ${ADDRESS}</li>
