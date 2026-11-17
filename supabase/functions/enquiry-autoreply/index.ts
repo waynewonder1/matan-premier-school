@@ -53,10 +53,18 @@ const TOPIC_REPLIES: Record<string, string> = {
     that suits you.</p>
     <p>You will find us at <strong>${ADDRESS}</strong>.</p>`,
   fees: `
-    <p>Thank you for asking about our fees. We will get in touch shortly to share our
-    current fee structure, meal plan and transport charges, and to confirm whether our
-    transport covers your area.</p>
-    <p>School hours are <strong>8:00 AM – 3:00 PM, Monday to Friday</strong>.</p>`,
+    <p>Here is a summary of our <strong>2027 tuition fees</strong> (per term, meals included):</p>
+    <ul>
+      <li>Daycare (1–2 years): KES 20,000 per term, or KES 400 per day</li>
+      <li>Reception (2–3 years): KES 34,000</li>
+      <li>PP1 (4–5 years): KES 35,000</li>
+      <li>PP2 (5–6 years): KES 36,000</li>
+    </ul>
+    <p>There is also a one-time admission fee of KES 6,000, annual fees of KES 3,000
+    (insurance and school diary), and at least one enrichment activity at KES 4,000 per
+    term. Transport is charged by zone, from KES 8,000 per term.</p>
+    <p>See the full fee structure and transport zones, with downloadable PDFs, here:
+    <a href="${SITE_URL}/fees.html">${SITE_URL}/fees.html</a></p>`,
   admissions: `
     <p>The quickest way to secure a place is our short online application form — the
     link is just below.</p>`,
@@ -70,10 +78,11 @@ const MATAN_BRIEF = `
     that opened in 2026. Through play-based learning with gentle structure, our small classes
     help every child build early literacy, numeracy, confidence and independence.</p>
     <ul style="margin: 0 0 14px; padding-left: 20px;">
-      <li><strong>Ages:</strong> 2 to 5 years (daycare, playgroup, PP1 and PP2)</li>
+      <li><strong>Ages:</strong> 1 to 6 years (Daycare, Reception, PP1 and PP2)</li>
       <li><strong>School day:</strong> 8:00 AM – 3:00 PM, Monday to Friday</li>
-      <li><strong>Meals:</strong> nutritious meals provided during the school day</li>
-      <li><strong>Transport:</strong> available (ask us about charges and areas covered)</li>
+      <li><strong>Fees:</strong> from KES 20,000 per term, meals included
+      (<a href="${SITE_URL}/fees.html">see all fees</a>)</li>
+      <li><strong>Transport:</strong> by zone, from KES 8,000 per term</li>
       <li><strong>Term 1, 2027:</strong> begins Wednesday, 6th January 2027</li>
       <li><strong>Location:</strong> ${ADDRESS}</li>
     </ul>
